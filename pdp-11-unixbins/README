@@ -1,0 +1,43 @@
+This directory contains gzipped tar archives holding PDP-11 a.out binaries
+for several versions of Unix:
+
+  v1bins.tar.gz		1st Edition UNIX	(c) Dennis Ritchie & Lucent
+  last1120c.tar.gz	2nd Ed C Compiler	(c) Dennis Ritchie & Lucent
+  v5bins.tar.gz		5th Edition UNIX	(c) Caldera
+  v6bins.tar.gz		6th Edition UNIX	(c) Caldera
+  v7bins.tar.gz		7th Edition UNIX	(c) Caldera
+  2.11bins.tar.gz	2.11 BSD		(c) Steven Schultz & UCB
+
+The V5, V6 and V7 binaries are covered by a license, whose details are given
+in the file sco_v567license.txt. Please read this file before using the
+relevant binaries. The 2.11BSD binaries are covered by the usual BSD license.
+I have no idea what restrictions are on the V1 binaries.
+
+last1120c.tar.gz contains source code to an early C compiler. See the
+Readme inside this file for more details.
+
+On my system, I have untarred these archives into /usr/local/src, and have
+installed Apout on my $PATH (in /usr/local/bin). I can then use the following
+shell aliases to start the command-line shell from each of the different
+Unix versions:
+
+alias 1sh 'setenv APOUT_ROOT /usr/local/src/V1;   apout $APOUT_ROOT/bin/sh'
+alias 2sh 'setenv APOUT_ROOT /usr/local/src/2.11; apout $APOUT_ROOT/bin/sh'
+alias 5sh 'setenv APOUT_ROOT /usr/local/src/V5;   apout $APOUT_ROOT/bin/sh'
+alias 6sh 'setenv APOUT_ROOT /usr/local/src/V6;   apout $APOUT_ROOT/bin/sh'
+alias 7sh 'setenv APOUT_ROOT /usr/local/src/V7;   apout $APOUT_ROOT/bin/sh'
+
+Remember, when you run these aliases, you are left in your current directory.
+To move to the top of the emulated directory tree, simply do `chdir /' for
+V1, V5 or V6, or `cd /' for V7 or 2.11BSD.
+
+Manual Pages for Various UNIX Versions
+--------------------------------------
+
+The tar archives for V6, V7 and 2.11BSD contain nroff -man format manual pages.
+V5 is close enough to V6 that you can use the V6 manual pages. Manual pages
+for 1st Edition UNIX can be found on-line on Dennis Ritchie's home page at:
+http://cm.bell-labs.com/cm/cs/who/dmr/1stEdman.html. On-line manual pages for
+V7 and 2.11BSD can also be found at http://www.FreeBSD.org/cgi/man.cgi.
+
+	Warren Toomey, wkt@tuhs.org, January 2000
